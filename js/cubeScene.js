@@ -1,7 +1,7 @@
 function init( webglFlag ) {
 	
 	var scene = new THREE.Scene();
-	var camera = new THREE.PerspectiveCamera(100, 250/220, 0.1, 500);
+	var camera = new THREE.PerspectiveCamera(75, 250/220, 0.1, 500);
 	scene.add( camera );
 	
 	var geo0 = new THREE.CubeGeometry( 1.5, 1.5, 1.5 );
@@ -13,7 +13,7 @@ function init( webglFlag ) {
 	var cube2 = new THREE.Mesh( geo2, mat );
 	cube0.add(cube1);
 	cube1.add(cube2);
-	cube0.position.z = -1.8;
+	cube0.position.z = -2;
 	scene.add(cube0);
 
 	//  RENDERER
