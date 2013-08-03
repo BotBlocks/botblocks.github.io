@@ -24,22 +24,36 @@ function init( webglFlag ) {
 	
 	var x = 0;
 	var y = 0;
-	var scale = 0.005;
-	window.addEventListener("click", function (event) {
-		x = event.clientX * scale;
-		y = event.clientY * scale;
-	}, false);
+	var scale = 0.0004;
+	var difx = 0;
+	var dify = 0;
+	var prevx = 0;
+	var prevy = 0;
+	var velx, vely;
+	var started = false;
 	
 	window.addEventListener("mousemove", function (event) {
-		x = event.clientX * scale;
-		y = event.clientY * scale;
+		if (!started) {
+			prevx = event.clientX;
+			prevy = event.clientY;
+			started = true;
+		}
+		x = event.clientX;
+		y = event.clientY;
+		velx = x - prevx;
+		vely = y - prevy;
+		difx += (velx * scale);
+		dify += (vely * scale);
+		console.log(x, velx, difx);
+		prevx = x;
+		prevy = y;
 	}, false);
 	
 	function render() {
-		
-		cube0.rotation.x = - y + Math.PI / 2;
-		cube0.rotation.y = - x;
-
+		cube0.rotation.y += difx;
+		cube0.rotation.x += dify;
+		difx *= 0.97;
+		dify *= 0.97;
 		requestAnimationFrame(render);
 		renderer.render(scene, camera);
 	}
