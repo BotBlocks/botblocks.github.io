@@ -44,7 +44,7 @@ function init( webglFlag ) {
 		vely = y - prevy;
 		difx += (velx * scale);
 		dify += (vely * scale);
-		console.log(x, velx, difx);
+
 		prevx = x;
 		prevy = y;
 	}, false);
