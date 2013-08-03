@@ -1,13 +1,13 @@
 function init( webglFlag ) {
 	
 	var scene = new THREE.Scene();
-	var camera = new THREE.PerspectiveCamera(75, 250/220, 0.1, 500);
+	var camera = new THREE.PerspectiveCamera(75, 22/19, 0.1, 500);
 	scene.add( camera );
 	
 	var geo0 = new THREE.CubeGeometry( 12, 12, 12 );
 	var mat = new THREE.MeshBasicMaterial( { wireframe: true } );
 	var cube0 = new THREE.Mesh( geo0, mat );
-	cube0.position.z = -16;
+	cube0.position.z = -18;
 	scene.add(cube0);
 
 	//  RENDERER
@@ -18,7 +18,7 @@ function init( webglFlag ) {
 		renderer = new THREE.CanvasRenderer();
 	}
 	
-	renderer.setSize( 250, 220 );
+	renderer.setSize( 200, 170 );
 	document.getElementById("cube").appendChild( renderer.domElement );
 	renderer.setClearColor (new THREE.Color (0x333333), 1);
 	
